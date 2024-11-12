@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/airpods/static/css/main.f5faea69.css",
+    "main.js": "/airpods/static/js/main.8809044e.js",
+    "static/js/453.762f5610.chunk.js": "/airpods/static/js/453.762f5610.chunk.js",
+    "index.html": "/airpods/index.html",
+    "main.f5faea69.css.map": "/airpods/static/css/main.f5faea69.css.map",
+    "main.8809044e.js.map": "/airpods/static/js/main.8809044e.js.map",
+    "453.762f5610.chunk.js.map": "/airpods/static/js/453.762f5610.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5faea69.css",
+    "static/js/main.8809044e.js"
+  ]
+}
