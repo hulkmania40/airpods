@@ -15,18 +15,18 @@ const NavBar: React.FC = () => {
         <li className="navbar-item">Mac</li>
         <li className="navbar-item">iPad</li>
         <li className="navbar-item">iPhone</li>
-		<li className="navbar-item">Watch</li>
-		<li className="navbar-item">Airpods</li>
-		<li className="navbar-item">TV & Home</li>
-		<li className="navbar-item">Entertainment</li>
-		<li className="navbar-item">Accessories</li>
-		<li className="navbar-item">Support</li>
-		<li className="navbar-item">
-			<FontAwesomeIcon icon={faSearch} />
-		</li>
-		<li className="navbar-item">
-			<FontAwesomeIcon icon={faBagShopping} />
-		</li>
+        <li className="navbar-item">Watch</li>
+        <li className="navbar-item">Airpods</li>
+        <li className="navbar-item">TV & Home</li>
+        <li className="navbar-item">Entertainment</li>
+        <li className="navbar-item">Accessories</li>
+        <li className="navbar-item">Support</li>
+        <li className="navbar-item">
+          <FontAwesomeIcon icon={faSearch} />
+        </li>
+        <li className="navbar-item">
+          <FontAwesomeIcon icon={faBagShopping} />
+        </li>
       </ul>
     </nav>
   );
