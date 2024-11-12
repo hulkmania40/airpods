@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NavBar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faApple } from "@fortawesome/free-brands-svg-icons";
 import { faBagShopping, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+  };
+
   return (
     <nav className="navbar">
-      <ul className="navbar-list">
+      <ul className={`navbar-list ${isMenuOpen ? "open" : ""} mobile-view`}>
         <li className="navbar-item">
           <FontAwesomeIcon size={"lg"} icon={faApple} />
         </li>
@@ -28,6 +34,12 @@ const NavBar: React.FC = () => {
           <FontAwesomeIcon icon={faBagShopping} />
         </li>
       </ul>
+
+      <div className={`hamburger ${isMenuOpen ? "open" : ""}`} onClick={toggleMenu}>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </nav>
   );
 };

@@ -1,30 +1,93 @@
-/* Navbar styling */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 1rem 0;
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem 0;
+  z-index: 10;
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+/* Navbar items */
+.navbar-item {
+  color: #cdcdcd;
+  font-size: 0.8rem;
+  font-weight: 100;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar-item:hover {
+  color: #ffffff;
+}
+
+.navbar-list.mobile-view {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navbar-list.mobile-view {
+      display: flex;
   }
-  
-  .navbar-list {
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-left: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #cdcdcd;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.hamburger.open div:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+
+.hamburger.open div:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open div:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Show hamburger only on mobiel devices */
+@media (max-width: 767px) {
+  .hamburger {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    gap: 2rem;
   }
-  
-  .navbar-item {
-    color: #cdcdcd;
-    font-size: 0.8rem;
-    font-weight: 100;
-    cursor: pointer;
-    transition: color 0.3s ease;
+
+  .navbar-list {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 0;
+      display: none;
   }
-  
-  .navbar-item:hover {
-    color: #ffffff;
+
+  .navbar-list.open {
+      display: flex;
   }
+}
