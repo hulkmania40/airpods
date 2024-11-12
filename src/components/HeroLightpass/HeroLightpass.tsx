@@ -5,6 +5,9 @@ const HeroLightpass: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const frameCount = 148;
 
+  // Cache to store images once loaded
+  const imageCache: { [key: number]: HTMLImageElement } = {};
+
   const currentFrame = (index: number) =>
     `https://www.apple.com/105/media/us/airpods-pro/2019/1299e2f5_9206_4470_b28e_08307a42f19b/anim/sequence/large/01-hero-lightpass/${index
       .toString()
@@ -14,6 +17,9 @@ const HeroLightpass: React.FC = () => {
     for (let i = 1; i < frameCount; i++) {
       const img = new Image();
       img.src = currentFrame(i);
+      img.onload = () => {
+        imageCache[i] = img; // Store the image in the cache
+      };
     }
   };
 
@@ -29,11 +35,22 @@ const HeroLightpass: React.FC = () => {
 
     img.onload = () => {
       context.drawImage(img, 0, 0);
+      imageCache[1] = img; // Cache the first image after loading
     };
 
     const updateImage = (index: number) => {
-      img.src = currentFrame(index);
-      context.drawImage(img, 0, 0);
+      // Check if the image is already cached
+      const cachedImage = imageCache[index];
+      if (cachedImage) {
+        context.drawImage(cachedImage, 0, 0);
+      } else {
+        const newImg = new Image();
+        newImg.src = currentFrame(index);
+        newImg.onload = () => {
+          context.drawImage(newImg, 0, 0);
+          imageCache[index] = newImg; // Cache the image once loaded
+        };
+      }
     };
 
     const handleScroll = () => {
